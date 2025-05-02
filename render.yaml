@@ -1,0 +1,22 @@
+services:
+  - name: fb-video-saver
+    type: web
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: REACT_APP_API_URL
+        value: https://fb-video-saver.onrender.com
+      - key: FACEBOOK_APP_ID
+        generateValue: true
+      - key: FACEBOOK_APP_SECRET
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
+    healthCheckPath: /health
+    autoDeploy: true
+    region: oregon
